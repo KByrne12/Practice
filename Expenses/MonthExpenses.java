@@ -27,7 +27,6 @@ public class MonthExpenses {
     }
 
     public void SetUtilities(float util){
-        //System.out.printf("Set Utilities to $%.2f\n", util );
         utilities = util;
         CalcTotals();
     }

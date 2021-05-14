@@ -28,9 +28,7 @@ public class DataList {
             pWriter.printf("%s %.2f %.2f %.2f %.2f %.2f\n",temp.getMonthYear(),temp.getRent(),temp.getUtilities(),
                     temp.getInternet(),temp.getFood(),temp.getMisc());
         }
-
         pWriter.close();
-
     }
 
     //creates a new month in system
@@ -107,12 +105,7 @@ public class DataList {
         String data;
         Scanner reader = new Scanner(file);
 
-       /* for(int i = 0; i < CATEGORIES; i++) {
-            data = reader.next();
-            categories[i] = data;
-        }
 
-        */
         while (reader.hasNext()){
             MonthExpenses month = new MonthExpenses();
             month.AddMonth(reader.next());
@@ -130,7 +123,6 @@ public class DataList {
         System.out.print("|");
         for(int i = 0; i < CATEGORIES; i++) {
             System.out.format("%15s|",categories[i]);
-            //"\t\t" + "|\t"
         }
         System.out.println();
         System.out.print("_");
