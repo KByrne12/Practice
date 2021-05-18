@@ -21,7 +21,7 @@ public class BillsUI {
     //calls function for checking if the key exists
     //if no key exists, will ask to try again
     //if key exists, changes to UI for adding in values until specified done
-    public void BillsProcess(){
+    public void billsProcess(){
         boolean found = false;
         String entry = "";
         MonthExpenses monthTemp = null;
@@ -33,7 +33,7 @@ public class BillsUI {
                 found = true;
         }
         while(!done){
-            WhatChange(monthTemp);
+            whatChange(monthTemp);
         }
     }
 
@@ -42,7 +42,7 @@ public class BillsUI {
     public int getCommand() {
         do {
             try {
-                Interface();
+                generalInterface();
                 int value = Integer.parseInt(getToken("What are you adding?\n"));
                 if (value >= 0 ) {
                     return value;
@@ -102,33 +102,33 @@ public class BillsUI {
     }
 
     //handles inputs for which value to change
-    public void WhatChange(MonthExpenses month){
+    public void whatChange(MonthExpenses month){
         int value = getCommand();
         float inVal = 0;
         switch(value){
             case 1:
                 inVal = getValue();
-                month.AddRent(inVal);
+                month.addRent(inVal);
                 System.out.printf("Set Rent to $%.2f\n", inVal );
                 break;
             case 2:
                 inVal = getValue();
-                month.AddUtilities(inVal);
+                month.addUtilities(inVal);
                 System.out.printf("Added $%.2f to Utilities\n", inVal );
                 break;
             case 3:
                 inVal = getValue();
-                month.SetInternet(inVal);
+                month.setInternet(inVal);
                 System.out.printf("Set Internet to $%.2f\n", inVal );
                 break;
             case 4:
                 inVal = getValue();
-                month.AddFood(inVal);
+                month.addFood(inVal);
                 System.out.printf("Added $%.2f to Food\n", inVal );
                 break;
             case 5:
                 inVal = getValue();
-                month.AddMisc(inVal);
+                month.addMisc(inVal);
                 System.out.printf("Added $%.2f to Misc\n", inVal );
                 break;
             case 0:
@@ -138,12 +138,11 @@ public class BillsUI {
     }
     //calls DataList for a specific month
     public MonthExpenses findMonth(String inVal){
-        MonthExpenses month = months.getMonth(inVal);
-        return month;
+        return months.getMonth(inVal);
     }
 
     //output for possible inputs
-    public void Interface(){
+    public void generalInterface(){
         System.out.println("1: Rent");
         System.out.println("2: Utilities");
         System.out.println("3: Internet");

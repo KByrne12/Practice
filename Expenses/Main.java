@@ -31,39 +31,39 @@ public class Main {
 
     //main
     public static void main(String[] args) {
-        Main.instance().BillingProcess();
+        Main.instance().billingProcess();
     }
 
     //process of system
     //load in previous data
     //handle commands to call functions
-    public void BillingProcess() {
+    public void billingProcess() {
         try{
-            months.ReloadMonths();
+            months.reloadMonths();
         }catch (FileNotFoundException e) {
             exit(0);
         }
         boolean done = false;
-        GeneralInterface();
+        generalInterface();
         while(!done){
             switch(getCommand()){
                 case 1:
-                    months.Output();
+                    months.output();
                     break;
                 case 2:
-                    AddBills();
+                    addBills();
                     System.out.println("Complete.");
                     break;
                 case 3:
-                    months.CreateMonth();
+                    months.createMonth();
                     System.out.println("Complete.");
                     break;
                 case 4:
-                    GeneralInterface();
+                    generalInterface();
                     break;
                 case 0:
                     done = true;
-                    try{months.SaveMonths();} catch (IOException e) {exit(1);}
+                    try{months.saveMonths();} catch (IOException e) {exit(1);}
                     System.out.println("Thank you.");
                     break;
             }
@@ -101,7 +101,7 @@ public class Main {
     }
 
     //input values
-    public static void GeneralInterface(){
+    public static void generalInterface(){
         System.out.println("What would you like to do?");
         System.out.println("1: View History");
         System.out.println("2: Add bills");
@@ -110,8 +110,8 @@ public class Main {
     }
 
     // start BillsUI
-    public void AddBills(){
+    public void addBills(){
         BillsUI billsUI = new BillsUI();
-        billsUI.BillsProcess();
+        billsUI.billsProcess();
     }
 }

@@ -19,55 +19,55 @@ public class MonthExpenses {
     }
 
     //private to prevent unintended breaking of totals
-    private void SetTotal(float total){
+    private void setTotal(float total){
         this.total = total;
     }
-    private void SetEachTotal(float eTotal){
+    private void setEachTotal(float eTotal){
         eachTotal = eTotal;
     }
 
-    public void SetUtilities(float util){
+    public void setUtilities(float util){
         utilities = util;
-        CalcTotals();
+        calcTotals();
     }
 
     //sets monthYear to specified key value
-    public void AddMonth(String str){
+    public void addMonth(String str){
         monthYear = str;
     }
 
     //multiple Utilities bills, running total
-    public void AddUtilities(float util){
+    public void addUtilities(float util){
         utilities += util;
-        CalcTotals();
+        calcTotals();
     }
 
     //Rent is one bill, sets to value
-    public void AddRent(float rent) {
+    public void addRent(float rent) {
         this.rent = rent;
-        CalcTotals();
+        calcTotals();
     }
 
     //add value to Misc total, running total
-    public void AddMisc(float misc){
+    public void addMisc(float misc){
         this.misc += misc;
-        CalcTotals();
+        calcTotals();
     }
 
     //internet is one bill, sets to value
-    public void SetInternet(float inter){
+    public void setInternet(float inter){
         internet = inter;
-        CalcTotals();
+        calcTotals();
     }
 
     //add value onto Food total, running total
-    public void AddFood(float val){
+    public void addFood(float val){
         food += val;
-        CalcTotals();
+        calcTotals();
     }
 
     //calculates total and total/2 for end of grid
-    private void CalcTotals(){
+    private void calcTotals(){
         total = 0;
         eachTotal = 0;
         total += utilities + rent + misc + + food + internet;
@@ -75,7 +75,7 @@ public class MonthExpenses {
     }
 
     //output a line on the grid
-    public void OutputGrid(){
+    public void outputGrid(){
         System.out.print("|");
         System.out.format("%15s|",monthYear);
         outputVal(rent);

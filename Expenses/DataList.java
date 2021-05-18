@@ -20,7 +20,7 @@ public class DataList {
     }
 
     //saves data at end of program back into file
-    public void SaveMonths() throws IOException {
+    public void saveMonths() throws IOException {
         File file = new File("C:\\Users\\ksaso\\Desktop\\Important Info\\Bills\\Bill_Record.csv");
         FileWriter writer = new FileWriter(file);
         PrintWriter pWriter = new PrintWriter(writer);
@@ -32,7 +32,7 @@ public class DataList {
     }
 
     //creates a new month in system
-    public void CreateMonth(){
+    public void createMonth(){
         String preMonth = months.getLast().getMonthYear();
         String currentMonth = "";
         String currentYear = "";
@@ -100,7 +100,7 @@ public class DataList {
     }
 
     //reload data from file back into system
-    public void ReloadMonths() throws FileNotFoundException {
+    public void reloadMonths() throws FileNotFoundException {
         File file = new File("C:\\Users\\ksaso\\Desktop\\Important Info\\Bills\\Bill_Record.csv");
         String data;
         Scanner reader = new Scanner(file);
@@ -108,18 +108,18 @@ public class DataList {
 
         while (reader.hasNext()){
             MonthExpenses month = new MonthExpenses();
-            month.AddMonth(reader.next());
-            month.AddRent(Float.parseFloat(reader.next()));
-            month.AddUtilities(Float.parseFloat(reader.next()));
-            month.SetInternet(Float.parseFloat(reader.next()));
-            month.AddFood(Float.parseFloat(reader.next()));
-            month.AddMisc(Float.parseFloat(reader.next()));
+            month.addMonth(reader.next());
+            month.addRent(Float.parseFloat(reader.next()));
+            month.addUtilities(Float.parseFloat(reader.next()));
+            month.setInternet(Float.parseFloat(reader.next()));
+            month.addFood(Float.parseFloat(reader.next()));
+            month.addMisc(Float.parseFloat(reader.next()));
             months.add(month);
         }
         reader.close();
     }
     //outputs grid of data
-    public void Output() {
+    public void output() {
         System.out.print("|");
         for(int i = 0; i < CATEGORIES; i++) {
             System.out.format("%15s|",categories[i]);
@@ -128,7 +128,7 @@ public class DataList {
         System.out.print("_");
         for(int i =0; i < CATEGORIES; i++) { System.out.print("________________"); }
         System.out.println();
-        for (MonthExpenses temp : months){ temp.OutputGrid(); }
+        for (MonthExpenses temp : months){ temp.outputGrid(); }
     }
 
     //returns month based on the "Month" key from data set
