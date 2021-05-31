@@ -1,7 +1,5 @@
 package com.company;
 
-import javax.swing.text.Utilities;
-
 public class MonthExpenses {
 
     private String monthYear;
